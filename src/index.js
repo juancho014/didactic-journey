@@ -6,6 +6,9 @@ const Juego = require('./model/juegos');
 
 app.use(express.json());
 
+
+
+
 app.get('/juegos', (req, res) => {
     Juego.find()
         .then((result) => {
