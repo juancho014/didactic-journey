@@ -2,26 +2,28 @@ require('./db/mongoose');
 const express = require('express');
 const app = express();
 const port =process.env.PORT || 3001;
-const Juego = require('./model/juegos');
+const Tarjeta = require('./model/tarjeta');
+const cors = require('cors');
 
 app.use(express.json());
 
+app.use(cors())
 
 
-
-app.get('/juegos', (req, res) => {
-    Juego.find()
+app.get('/tarjetas', (req, res) => {
+    Tarjeta.find()
         .then((result) => {
             res.send(result)
         })
         .catch(err => res.status(404).send(err));
 })
 
-app.post('/juego', (req, res) => {
-    const juego = new Juego(req.body)
-    juego.save()
+app.post('/tarjeta', (req, res) => {
+
+    const tarjeta = new Tarjeta(req.body)
+    tarjeta.save()
         .then(() => {
-            res.status(201).send(juego);
+            res.status(201).send(tarjeta);
         })
         .catch((err) => {
             res.status(400).send(err);

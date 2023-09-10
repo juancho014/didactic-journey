@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const juego = mongoose.model('juego', {
+const tarjeta = mongoose.model('tarjeta', {
    
     name : {
         type: String,
@@ -14,6 +14,10 @@ const juego = mongoose.model('juego', {
             type:String,
             required:true
         },
+        description3:{
+            type:String,
+            required:true
+        },
 
     img: { 
         type: String,
@@ -21,4 +25,4 @@ const juego = mongoose.model('juego', {
     }
 });
 
-module.exports = juego;
+module.exports = tarjeta;
